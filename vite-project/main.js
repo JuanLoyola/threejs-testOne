@@ -15,14 +15,14 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio( window.devicePixelRatio )
 renderer.setSize(window.innerWidth, window.innerHeight)
-camera.position.setZ(30)
+camera.position.setZ(20)
 
 renderer.render(scene, camera)
 
 // creation of the object with material
 
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100)
-const material = new THREE.MeshStandardMaterial({ color: 0xFF6347 })
+const material = new THREE.MeshStandardMaterial({ color: 0x945acc, wireframe: true })
 const torus = new THREE.Mesh(geometry, material)
 
 scene.add(torus)
@@ -33,11 +33,6 @@ pointLight.position.set(5, 5, 5)
 
 const ambientLight = new THREE.AmbientLight(0xffffff)
 scene.add(pointLight, ambientLight)
-
-// helpers, delete after
-// const lightHelper = new THREE.PointLightHelper(pointLight)
-// const gridHelper = new THREE.GridHelper(200, 50)
-// scene.add(lightHelper, gridHelper)
 
 // camera control
 const controls = new OrbitControls(camera, renderer.domElement)
